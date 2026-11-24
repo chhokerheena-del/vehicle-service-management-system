@@ -80,15 +80,8 @@ app.use('/api/dbms-queries', dbmsQueryRoutes);
 app.use(errorHandler);
 
 
-// Start Server locally
-if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(`=======================================================`);
-    console.log(` AutoCare Pro Backend Server running on port ${PORT} `);
-    console.log(` API Endpoint: http://localhost:${PORT}/api/health   `);
-    console.log(` DBMS: MySQL 8.0                                   `);
-    console.log(`=======================================================`);
-  });
+if (process.env.VERCEL !== "1") {
+  app.listen(process.env.PORT || 5000, () => console.log("running"));
 }
 
-module.exports = app;
+module.exports = app; 

@@ -1,0 +1,11 @@
+{
+  "name": "vehicle-service-management",
+  "private": true,
+  "scripts": {
+    "postinstall": "prisma generate && npm install --prefix frontend",
+    "build": "npm run build --prefix frontend"
+  },
+  "dependencies": {
+    "PASTE ALL DEPENDENCIES FROM backend/package.json HERE": "x"
+  }
+}
