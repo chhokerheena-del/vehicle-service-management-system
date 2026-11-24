@@ -79,13 +79,16 @@ app.use('/api/dbms-queries', dbmsQueryRoutes);
 // Centralized Error Handling
 app.use(errorHandler);
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`=======================================================`);
-  console.log(` AutoCare Pro Backend Server running on port ${PORT} `);
-  console.log(` API Endpoint: http://localhost:${PORT}/api/health   `);
-  console.log(` DBMS: MySQL 8.0 on port 3307                        `);
-  console.log(`=======================================================`);
-});
+
+// Start Server locally
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`=======================================================`);
+    console.log(` AutoCare Pro Backend Server running on port ${PORT} `);
+    console.log(` API Endpoint: http://localhost:${PORT}/api/health   `);
+    console.log(` DBMS: MySQL 8.0                                   `);
+    console.log(`=======================================================`);
+  });
+}
 
 module.exports = app;
